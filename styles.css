@@ -1,0 +1,180 @@
+:root {
+  color-scheme: light;
+  --paper: #f4f3ed;
+  --surface: #fbfaf6;
+  --ink: #17201d;
+  --muted: #64706b;
+  --line: #d7dbd5;
+  --accent: #28755f;
+  --accent-soft: #dcebe5;
+  --max: 1120px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+a { color: inherit; text-underline-offset: 0.22em; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 3px solid #8fc7b6; outline-offset: 4px; border-radius: 2px; }
+
+.site-header,
+main,
+footer {
+  width: min(calc(100% - 40px), var(--max));
+  margin-inline: auto;
+}
+
+.site-header {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-weight: 760;
+  letter-spacing: -0.025em;
+  text-decoration: none;
+}
+
+nav { display: flex; gap: 24px; }
+nav a { color: var(--muted); font-size: 0.92rem; text-decoration: none; }
+nav a[aria-current="page"] { color: var(--ink); }
+
+.hero {
+  min-height: 620px;
+  display: grid;
+  align-content: center;
+  max-width: 900px;
+  padding: 96px 0;
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 18px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 760;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, p { text-wrap: pretty; }
+
+h1 {
+  max-width: 880px;
+  margin: 0;
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  font-weight: 680;
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+.lede {
+  max-width: 710px;
+  margin: 34px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+}
+
+.status {
+  width: fit-content;
+  margin-top: 34px;
+  padding: 9px 14px;
+  border: 1px solid #bfd7ce;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #235c4b;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 72px;
+  padding: 92px 0;
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.prose { max-width: 670px; color: #3e4945; font-size: 1.08rem; }
+.prose p:first-child { margin-top: 0; }
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.principles article { min-height: 270px; padding: 36px 30px 46px; }
+.principles article + article { border-left: 1px solid var(--line); }
+.principles span { color: var(--accent); font: 650 0.76rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+.principles h3 { margin: 56px 0 10px; font-size: 1.2rem; }
+.principles p { margin: 0; color: var(--muted); }
+
+.document { max-width: 900px; }
+.document-header { padding: 100px 0 64px; border-bottom: 1px solid var(--line); }
+.document-header h1 { font-size: clamp(3rem, 7vw, 6rem); }
+.updated { margin: 26px 0 0; color: var(--muted); }
+.document-body { max-width: 720px; margin: 0 auto; padding: 74px 0 100px; }
+.document-body section + section { margin-top: 52px; }
+.document-body h2 { font-size: 1.35rem; letter-spacing: -0.02em; }
+.document-body p { color: #3e4945; }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 34px 0 52px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+footer p { margin: 0; }
+
+@media (max-width: 720px) {
+  .site-header, main, footer { width: min(calc(100% - 28px), var(--max)); }
+  .site-header { min-height: 72px; }
+  nav { gap: 16px; }
+  .hero { min-height: auto; padding: 92px 0; }
+  h1 { letter-spacing: -0.052em; }
+  .details { grid-template-columns: 1fr; gap: 40px; padding: 70px 0; }
+  .principles { grid-template-columns: 1fr; }
+  .principles article { min-height: auto; padding: 32px 4px 38px; }
+  .principles article + article { border-left: 0; border-top: 1px solid var(--line); }
+  .principles h3 { margin-top: 30px; }
+  .document-header { padding: 76px 0 52px; }
+  .document-body { padding: 58px 0 78px; }
+  footer { flex-direction: column; gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
